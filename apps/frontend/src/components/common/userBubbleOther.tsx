@@ -22,7 +22,7 @@ export const UserBubbleOther = ({
   if (type === "ai") {
     return (
       <>
-        <div className="bg-[#282828] w-fit max-w-[70%] mt-[20px]  p-4 rounded-[20px] flex flex-col gap-2 float-left ">
+        <div className="bg-[#282828] w-fit max-w-[100%] mt-[20px]  p-4 rounded-[20px] flex flex-col gap-2 float-left ">
           <div className="flex items-center justify-between">
             <p className="font-semibold text-[#FF8181]">@ai</p>
             <p className="text-sm font-semibold">23/04/2023</p>
