@@ -1,5 +1,5 @@
 import { ChatPage } from "@/components/common/ChatPage";
-import { ChatSidebar } from "@/components/chat/ChatSidebar";
+import { ChatSidebar } from "@/components/common/ChatSidebar";
 import { Navigation } from "@/components/common/navigation";
 
 import React from "react";
@@ -15,7 +15,7 @@ const DashboardAI = ({}: DashboardAIProps) => {
             <Navigation />
           </div>
           <div className="h-[calc(100%-40px)]">
-            <ChatSidebar />
+            <ChatSidebar type="ai" />
           </div>
         </section>
         <section className="row-span-1 col-span-5">

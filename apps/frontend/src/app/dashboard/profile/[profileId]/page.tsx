@@ -16,7 +16,6 @@ const DashboardProfile = ({ params }: DashboardProfileProps) => {
           <Navigation />
           <p>{params.profileId}</p>
         </section>
-
         <div className="w-[100%] h-[calc(100%-60px)]  grid grid-rows-1 grid-cols-5 grid-flow-col gap-2">
           <section className=" row-span-1 col-span-2">
             <MainProfile />
