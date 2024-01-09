@@ -1,0 +1,11 @@
+{
+  "name": "@everything/database",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "version": "0.0.1",
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "prisma": "^5.7.1",
+    "typescript": "latest"
+  }
+}
