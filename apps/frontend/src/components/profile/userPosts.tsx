@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Post } from "../common/post";
 
-type UserPostProps = {};
+type UserPostProps = {
+  posts: {
+    userId: string;
+    userImg: string;
+    username: string;
+    name: string;
+    isliked: boolean;
+    isVerified: boolean;
+    description: string;
+    image_url?: string;
+    video_url?: string;
+  }[];
+};
 
-export const UserPosts = ({}: UserPostProps) => {
+export const UserPosts = ({ posts }: UserPostProps) => {
   return (
     <div className="w-[100%] h-[100%] overflow-auto  rounded-[30px] no-scrollbar text-white flex items-center flex-col">
       {/* heading */}
@@ -14,13 +26,9 @@ export const UserPosts = ({}: UserPostProps) => {
       {/* all posts */}
 
       <div className="mt-[20px] w-[95%]">
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {posts.map((post) => {
+          return <Post post={post} />;
+        })}
       </div>
     </div>
   );

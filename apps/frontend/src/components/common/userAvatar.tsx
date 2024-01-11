@@ -15,13 +15,14 @@ const buttonVariants = cva("rounded-[30px] z-[1]", {
 
 interface UserAvatarProps extends VariantProps<typeof buttonVariants> {
   className?: string;
+  userImg?: string;
 }
 
-export const UserAvatar = ({ size, className }: UserAvatarProps) => {
+export const UserAvatar = ({ size, className, userImg }: UserAvatarProps) => {
   return (
     <>
       <Avatar className={cn(buttonVariants({ size }), className)}>
-        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarImage src={userImg} />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
     </>

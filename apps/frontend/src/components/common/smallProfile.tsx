@@ -4,16 +4,20 @@ import { HomeProfileCard } from "../home/homeProfileCard";
 import { SkillProfile } from "./skillProfile";
 import { useNavigate } from "react-router-dom";
 import { PORTFOLIO_LINK } from "@/lib/constant";
+import { useRecoilValue } from "recoil";
+import { homeProfileData } from "@/store/atoms/home/homeStates";
 
-type ProfileSmallProps = {};
+interface ProfileSmallProps {}
 
 export const ProfileSmall = ({}: ProfileSmallProps) => {
   const navigate = useNavigate();
+  const userData = useRecoilValue(homeProfileData);
+
   return (
     <div className="w-[100%] h-[100%] flex items-center flex-col text-white gap-4 overflow-auto no-scrollbar">
-      <HomeProfileCard />
+      <HomeProfileCard userProfileDetail={userData} />
       <div className="pl-[20px]">
-        <SkillProfile type="small" />
+        <SkillProfile skills={userData.smallSkillList} />
       </div>
 
       <div

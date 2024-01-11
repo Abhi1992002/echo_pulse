@@ -13,6 +13,7 @@ import { Bookmark } from "../ai/bookmark";
 
 type ChatPageProps = {
   type: "ai" | "normal";
+  username: string;
 };
 
 const factorialCode = `function isPrime(num) {
@@ -118,7 +119,7 @@ const codeObj = {
   code: factorialCode,
 };
 
-export const ChatPage = ({ type }: ChatPageProps) => {
+export const ChatPage = ({ type, username }: ChatPageProps) => {
   const [chatId, setChatId] = useRecoilState(aiChatSidebar);
   const navigate = useNavigate();
 
@@ -192,7 +193,7 @@ export const ChatPage = ({ type }: ChatPageProps) => {
     );
   }
 
-  if (type === "normal" && chatId) {
+  if (type === "normal" && username) {
     return (
       <div className="w-[100%] h-[100%]  rounded-[30px]">
         <div className="p-2  sticky bottom-0   bg-[#1A1A1A]  border-b border-white/40 ">
@@ -219,7 +220,7 @@ export const ChatPage = ({ type }: ChatPageProps) => {
     );
   }
 
-  if (!chatId) {
+  if (type === "ai" && !chatId) {
     return (
       <div className="w-[100%] h-[100%] flex items-center justify-center">
         <div

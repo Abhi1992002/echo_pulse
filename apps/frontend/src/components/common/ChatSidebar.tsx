@@ -4,6 +4,8 @@ import React from "react";
 import { ChatUser } from "../chat/chatUser";
 import { toasterPromise } from "@/lib/toast";
 import { AiChatUser } from "../ai/aiChatUser";
+import { useRecoilValue } from "recoil";
+import { chatSidebarState } from "@/store/atoms/chat/chatStates";
 
 type ChatSidebarProps = {
   type: "ai" | "normal";
@@ -73,6 +75,7 @@ const chats = [
 ];
 
 export const ChatSidebar = ({ type }: ChatSidebarProps) => {
+  const friendList = useRecoilValue(chatSidebarState);
   const newChatCreatedHandler = () => {
     const addingNewAIChat = new Promise((resolve) => {
       setTimeout(() => {
@@ -112,21 +115,10 @@ export const ChatSidebar = ({ type }: ChatSidebarProps) => {
 
         {type == "normal" && (
           <div className="w-[100%]  mt-4 flex flex-col gap-4">
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
-            <ChatUser />
+            {friendList &&
+              friendList.map((friend) => {
+                return <ChatUser friend={friend} />;
+              })}
           </div>
         )}
 

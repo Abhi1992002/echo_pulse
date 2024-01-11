@@ -2,23 +2,26 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import TextTruncate from "react-text-truncate";
 import { Button } from "../ui/button";
+import { friendRequestType } from "@/types/common";
 
-type FriendRequestCardProps = {};
+type FriendRequestCardProps = {
+  req: friendRequestType;
+};
 
-export const FriendRequestCard = ({}: FriendRequestCardProps) => {
+export const FriendRequestCard = ({ req }: FriendRequestCardProps) => {
   return (
     <>
       <div className="w-[100%] rounded-[30px] bg-[#222222] p-4 flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <p className="text-sm text-[#FF8181]">Friend Request</p>
-          <p className="text-sm text-[#CBCBCB]">23 Dec, 2024</p>
+          <p className="text-sm text-[#CBCBCB]">{req.date}</p>
         </div>
 
         <div className="flex gap-2">
           <p className="text-sm text-[#CBCBCB]">from:</p>
           <Link href={"/"} className="]">
             <p className="text-sm hover:text-[#FFFD00] hover:cursor-pointer">
-              @abhi1992002
+              {req.from}
             </p>
           </Link>
         </div>
@@ -28,7 +31,7 @@ export const FriendRequestCard = ({}: FriendRequestCardProps) => {
             line={2}
             element="span"
             truncateText="…"
-            text="Lorem Ipsum is simply fewlfmewf dummy text of the printing and typesetting industry."
+            text={req.message}
           />
         </div>
 

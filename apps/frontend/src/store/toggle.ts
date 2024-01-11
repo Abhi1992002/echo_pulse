@@ -7,7 +7,7 @@ export const homeNotificationToggle = atom({
   default: "friend_request" as homeNotificationToggleType,
 });
 
-type profileTimelineToggleType = "education" | "work";
+type profileTimelineToggleType = "education" | "work" | "experience";
 
 export const profileTimelineToggle = atom({
   key: "profileTimelineToggle",

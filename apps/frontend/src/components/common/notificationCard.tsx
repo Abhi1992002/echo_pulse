@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
 import { Notification } from "./notification";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { homeNotificationToggle } from "@/store/toggle";
 import { cn } from "@/lib/utils";
 import { FriendRequestCard } from "./friendRequestCard";
 import { Input } from "../ui/input";
 import { Search } from "lucide-react";
+import {
+  homeFriendRequest,
+  homeNotification,
+} from "@/store/atoms/home/homeStates";
 
 type NotificationProps = {};
 
@@ -14,6 +18,9 @@ export const NotificationCard = ({}: NotificationProps) => {
   const [notificationToggle, setNotificationToggle] = useRecoilState(
     homeNotificationToggle
   );
+
+  const notificationData = useRecoilValue(homeNotification);
+  const friendRequestData = useRecoilValue(homeFriendRequest);
 
   return (
     <>
@@ -54,7 +61,10 @@ export const NotificationCard = ({}: NotificationProps) => {
 
           {notificationToggle === "notification" && (
             <div className="flex gap-2 flex-col">
-              <Notification type="comment" />
+              {notificationData &&
+                notificationData.map((notification) => {
+                  return <Notification notification={notification} />;
+                })}
             </div>
           )}
 
@@ -69,11 +79,10 @@ export const NotificationCard = ({}: NotificationProps) => {
                 />
               </div>
 
-              <FriendRequestCard />
-              <FriendRequestCard />
-              <FriendRequestCard />
-              <FriendRequestCard />
-              <FriendRequestCard />
+              {friendRequestData &&
+                friendRequestData.map((req) => {
+                  return <FriendRequestCard req={req} />;
+                })}
             </div>
           )}
         </div>

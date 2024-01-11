@@ -6,9 +6,12 @@ import { profileTimelineToggle } from "@/store/toggle";
 import { cn } from "@/lib/utils";
 import { Education } from "./education";
 
-type TimeLineProps = {};
+type TimeLineProps = {
+  works: { date: string; heading: string; content: string }[];
+  education: { date: string; heading: string; content: string }[];
+};
 
-export const TimeLine = ({}: TimeLineProps) => {
+export const TimeLine = ({ works, education }: TimeLineProps) => {
   const [timelineToggle, setTimeLineToggle] = useRecoilState(
     profileTimelineToggle
   );
@@ -45,8 +48,8 @@ export const TimeLine = ({}: TimeLineProps) => {
         </ul>
       </div>
 
-      {timelineToggle === "work" && <WorkExperience />}
-      {timelineToggle === "education" && <Education />}
+      {timelineToggle === "work" && <WorkExperience works={works} />}
+      {timelineToggle === "education" && <Education educations={education} />}
     </>
   );
 };

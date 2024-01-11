@@ -4,6 +4,7 @@ import "./globals.css";
 import { Provider } from "@/components/providers/providers";
 const inter = Inter({ subsets: ["latin"] });
 import { Toaster } from "react-hot-toast";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Create Next App",

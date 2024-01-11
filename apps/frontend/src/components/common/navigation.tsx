@@ -1,14 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { Input } from "@/components/ui/input";
-import {
-  Brain,
-  Heart,
-  Home,
-  MessageCircleMore,
-  Search,
-  User2,
-} from "lucide-react";
+import { Brain, Heart, Home, MessageCircleMore, User2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -27,10 +20,10 @@ export const Navigation = () => {
         <div className="flex-1 flex items-center justify-center gap-8">
           <SearchByUsernameModel />
           <Link
-            href={"/dashboard/home"}
+            href={"/dashboard/home/all"}
             className={cn(
               "text-[#CBCBCB] hover:text-[#FFFD00]",
-              pathname === "/dashboard/home" && "text-[#FFFD00]"
+              pathname === "/dashboard/home/all" && "text-[#FFFD00]"
             )}
           >
             <Home className="h-[20px] w-[20px] " />
@@ -45,10 +38,10 @@ export const Navigation = () => {
             <MessageCircleMore className="h-[20px] w-[20px] " />
           </Link>
           <Link
-            href={"/dashboard/like"}
+            href={"/dashboard/home/like"}
             className={cn(
               "text-[#CBCBCB] hover:text-[#FFFD00]",
-              pathname === "/dashboard/like" && "text-[#FFFD00]"
+              pathname === "/dashboard/home/like" && "text-[#FFFD00]"
             )}
           >
             <Heart className="h-[20px] w-[20px] " />
