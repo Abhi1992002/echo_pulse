@@ -79,3 +79,11 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+## docker initiialization
+
+npx prisma generate dev
+
+docker run --name echo_pulse -e POSTGRES_PASSWORD=12345678 -p 5432:5432 -d postgres
+
+npx prisma migrate dev

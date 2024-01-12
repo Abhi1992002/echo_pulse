@@ -11,6 +11,8 @@ import {
   homeNotification,
   homeProfileData,
 } from "@/store/atoms/home/homeStates";
+import { useUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
@@ -22,8 +24,10 @@ const homeAndLikeLayout = ({ children }: homeAndLikeLayoutProps) => {
   const [profileData, setProfileData] = useRecoilState(homeProfileData);
   const [notification, setNotification] = useRecoilState(homeNotification);
   const [friendRequest, setFriendRequest] = useRecoilState(homeFriendRequest);
+  const { user, isSignedIn } = useUser();
   useEffect(() => {
     // access userId
+    const id = user?.id;
 
     // accessing posts and userData using userID
 
