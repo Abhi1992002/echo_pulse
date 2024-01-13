@@ -8,12 +8,11 @@ import { useRecoilState } from "recoil";
 import { aiChatSidebar } from "@/store/sideBar";
 import { PlusIcon } from "lucide-react";
 import { toasterPromise } from "@/lib/toast";
-import { useNavigate } from "react-router-dom";
 import { Bookmark } from "../ai/bookmark";
 
 type ChatPageProps = {
   type: "ai" | "normal";
-  username: string;
+  username?: string;
 };
 
 const factorialCode = `function isPrime(num) {
@@ -121,7 +120,6 @@ const codeObj = {
 
 export const ChatPage = ({ type, username }: ChatPageProps) => {
   const [chatId, setChatId] = useRecoilState(aiChatSidebar);
-  const navigate = useNavigate();
 
   const newChatCreatedHandler = () => {
     const addingNewAIChat = new Promise((resolve) => {
@@ -130,7 +128,7 @@ export const ChatPage = ({ type, username }: ChatPageProps) => {
       }, 1000);
     }).then(() => {
       const chatId = "ewlfkhwef";
-      navigate(`dashboard/ai?chatId=${chatId}`);
+      // navigate(`dashboard/ai?chatId=${chatId}`);
       const id = location.search.split("=")[1];
       setChatId(id);
     });

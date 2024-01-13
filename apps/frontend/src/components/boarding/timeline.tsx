@@ -42,8 +42,9 @@ export const TimelineBoarding = ({
 
   return (
     <>
-      <div className="flex flex-col h-full gap-4">
-        <div className="h-full flex flex-col gap-4">
+      <div className="flex flex-col h-full gap-8">
+        <h1 className="text-2xl font-bold">Timeline</h1>
+        <div className="h-full flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <h3>Work Experiences</h3>
             {workFields.map((item, index) => (
@@ -154,7 +155,7 @@ export const TimelineBoarding = ({
             </Button>
           </div>
 
-          <div>
+          <div className="flex flex-col gap-4">
             <h3>Education</h3>
             {educationFields.map((item, index) => (
               <div key={item.id} className="flex flex-col gap-4">
@@ -216,7 +217,7 @@ export const TimelineBoarding = ({
                       render={({ field }) => (
                         <FormControl className="w-[100%]">
                           <Input
-                            placeholder="Work"
+                            placeholder="Institution"
                             {...field}
                             className="bg-[#282828] rounded-[20px] border border-white/40 placeholder:text-white/60"
                           />
@@ -263,23 +264,23 @@ export const TimelineBoarding = ({
               Add Education
             </Button>
           </div>
-        </div>
-      </div>
 
-      <div className="w-[100%] flex justify-between float-end">
-        <Button
-          onClick={() => {
-            setBoarding(2);
-          }}
-          tone="dark"
-          type="button"
-          className="py-2 px-4 w-fit border border-white/40"
-        >
-          Back
-        </Button>
-        <Button type="submit" tone="bright" className="py-2 px-4 w-fit">
-          Submit
-        </Button>
+          <div className="w-[100%] flex justify-between float-end">
+            <Button
+              onClick={() => {
+                setBoarding(2);
+              }}
+              tone="dark"
+              type="button"
+              className="py-2 px-4 w-fit border border-white/40"
+            >
+              Back
+            </Button>
+            <Button type="submit" tone="bright" className="py-2 px-4 w-fit">
+              Submit
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -19,7 +19,7 @@ export const SocialLinkBoarding = ({ form }: SocialLinkBoardingProps) => {
     <>
       <div className="flex h-full flex-col gap-4">
         <h1 className="text-2xl font-bold">Social Details</h1>
-        <div className="flex flex-col gap-4 h-full">
+        <div className="flex flex-col gap-8 h-full">
           {/* GitHub Link Field */}
           <FormField
             control={form.control}

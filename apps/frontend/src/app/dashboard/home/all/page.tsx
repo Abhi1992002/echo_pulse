@@ -18,7 +18,7 @@ const Dashboard = ({}: DashboardProps) => {
     setProfilePost(postDetails);
   });
 
-  return <>{profilePost && <HomeMiddle type="all" />}</>;
+  return <>{/* {profilePost && <HomeMiddle type="all" />} */}</>;
 };
 
 export default Dashboard;

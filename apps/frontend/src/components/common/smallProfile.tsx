@@ -2,15 +2,13 @@
 import React from "react";
 import { HomeProfileCard } from "../home/homeProfileCard";
 import { SkillProfile } from "./skillProfile";
-import { useNavigate } from "react-router-dom";
-import { PORTFOLIO_LINK } from "@/lib/constant";
+
 import { useRecoilValue } from "recoil";
 import { homeProfileData } from "@/store/atoms/home/homeStates";
 
 interface ProfileSmallProps {}
 
 export const ProfileSmall = ({}: ProfileSmallProps) => {
-  const navigate = useNavigate();
   const userData = useRecoilValue(homeProfileData);
 
   return (
@@ -22,7 +20,7 @@ export const ProfileSmall = ({}: ProfileSmallProps) => {
 
       <div
         role="button"
-        onClick={() => navigate(PORTFOLIO_LINK)}
+        // onClick={() => navigate(PORTFOLIO_LINK)}
         className="z-[1] mt-[20px] p-[20px] h-full w-[300px] flex items-center justify-center rounded-[15px] bg-[#2F2E2E] hover:text-black hover:bg-white hover:cursor-pointer max-h-[200px]"
       >
         <p className="text-2xl">Creator's Porfolio</p>

@@ -2,7 +2,6 @@
 import { aiChatSidebar } from "@/store/sideBar";
 import { MoreVertical } from "lucide-react";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import TextTruncate from "react-text-truncate";
 import { useSetRecoilState } from "recoil";
 
@@ -12,11 +11,10 @@ type AiChatUserProps = {
 };
 
 export const AiChatUser = ({ chat, chatId }: AiChatUserProps) => {
-  const navigate = useNavigate();
   const setAiChatSidebarId = useSetRecoilState(aiChatSidebar);
 
   const chatHandler = () => {
-    navigate(`dashboard/ai?chatId=${chatId}`);
+    // navigate(`dashboard/ai?chatId=${chatId}`);
     const id = location.search.split("=")[1];
     setAiChatSidebarId(id);
   };

@@ -1,4 +1,3 @@
-"use client";
 import { ChatPage } from "@/components/common/ChatPage";
 import { ChatSidebar } from "@/components/common/ChatSidebar";
 import { Navigation } from "@/components/common/navigation";
@@ -10,7 +9,7 @@ type DashboardAIProps = {};
 const DashboardAI = ({}: DashboardAIProps) => {
   return (
     <main className="w-screen h-screen flex  flex-col items-center">
-      {/* <div className="w-[100%] h-[100%] max-w-[1440px] grid grid-rows-1 grid-cols-8 grid-flow-rows gap-6 p-6 pt-1 pl-1 text-white">
+      <div className="w-[100%] h-[100%] max-w-[1440px] grid grid-rows-1 grid-cols-8 grid-flow-rows gap-6 p-6 pt-1 pl-1 text-white">
         <section className="row-span-1 col-span-2 flex gap-1 flex-col">
           <div className="pt-5 bg-[#282828] w-[100%] max-w-[1440px] rounded-[30px]">
             <Navigation />
@@ -22,9 +21,9 @@ const DashboardAI = ({}: DashboardAIProps) => {
         <section className="row-span-1 col-span-6">
           <ChatPage type="ai" />
         </section>
-      </div> */}
+      </div>
     </main>
   );
 };
 
-export
+export default DashboardAI;
